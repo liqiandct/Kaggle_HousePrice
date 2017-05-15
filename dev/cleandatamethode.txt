@@ -1,0 +1,124 @@
+We have 5 different methode to clean the data.
+1. keep original 
+2. replace the missing data with 0 or other valeur numerical
+3. map the string to number
+4. regoupe data and give them new group number (add new variable)
+5. get a new variable with the calculation between two different variables
+
+
+2      'LotFrontage', remplace null with the median of all his neighbors
+1      'LotArea', no change
+2      'MasVnrArea', remplace null wtih 0
+2      'BsmtFinSF1', remplace null wtih 0
+2      'BsmtFinSF2', remplace null wtih 0
+2      'BsmtUnfSF',  remplace null wtih 0
+2      'TotalBsmtSF', remplace null wtih 0
+1 		'stFlrSF', no change
+1 		'2ndFlrSF', no change
+1 		'GrLivArea', no change
+2 		'GarageArea', remplace null wtih 0
+1 		'WoodDeckSF', no change
+1 		'OpenPorchSF', no change
+1  		'EnclosedPorch', no change
+1 		'3SsnPorch', no change
+1   	'ScreenPorch', no change
+2 		'BsmtFullBath', remplace null wtih 0
+2 		'BsmtHalfBath', remplace null wtih 0
+1 		'FullBath', no change
+1 		'HalfBath', no change
+1 		'BedroomAbvGr', no change
+1 		'KitchenAbvGr', no change
+1 		'TotRmsAbvGrd', no change
+1 		'Fireplaces', no change and delete(the correlation with SalePrice = 0)
+3 		'CentralAir', replace "Y" with 1, others 0
+1 		'OverallQual', no change
+1 		'OverallCond', no change
+3 		'ExterQual', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'ExterCond', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'BsmtQual', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'BsmtCond', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'HeatingQC', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'KitchenQual', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'FireplaceQu', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'GarageQual', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'GarageCond', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+3 		'BsmtExposure', map the string valeur with number ({None: 0, "No": 1, "Mn": 2, "Av": 3, "Gd": 4})
+3 		'BsmtFinType1', map the string valeur with number {None: 0, "Unf": 1, "LwQ": 2, "Rec": 3, "BLQ": 4, "ALQ": 5, "GLQ": 6}
+3 		'BsmtFinType2', map the string valeur with number {None: 0, "Unf": 1, "LwQ": 2, "Rec": 3, "BLQ": 4, "ALQ": 5, "GLQ": 6}
+3  		'Functional', map the string valeur with number {None: 0, "Sal": 1, "Sev": 2, "Maj2": 3, "Maj1": 4, "Mod": 5, "Min2": 6, "Min1": 7, "Typ": 8})
+3 		'GarageFinish', map the string valeur with number {None: 0, "Unf": 1, "RFn": 2, "Fin": 3}
+3 		'Fence', map the string valeur with number {None: 0, "MnWw": 1, "GdWo": 2, "MnPrv": 3, "GdPrv": 4}
+1 		'YearBuilt', no change
+1 		'YearRemodAdd', no change
+2 		'MoSold', remplace null wtih 0
+1 		'YrSold', no change
+1 		'LowQualFinSF', no change
+1 		'MiscVal', no change
+3 		'PoolQC', map the string valeur with number {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}
+2 		'PoolArea', remplace null wtih 0
+3		'MSSubClass', add categorical features as numbers with fonction LabelEncoder()
+3		'MSZoning', add categorical features as numbers with fonction LabelEncoder()
+3		'LotConfig', add categorical features as numbers with fonction LabelEncoder()
+3  		'Neighborhood', add categorical features as numbers with fonction LabelEncoder()
+3		'Condition1', add categorical features as numbers with fonction LabelEncoder()
+3		'BldgType', add categorical features as numbers with fonction LabelEncoder()
+3		'HouseStyle', add categorical features as numbers with fonction LabelEncoder()
+3 		'RoofStyle', add categorical features as numbers with fonction LabelEncoder()
+3 		'Exterior1st', add categorical features as numbers with fonction LabelEncoder()
+3 		'Exterior2nd', add categorical features as numbers with fonction LabelEncoder()
+3 		'MasVnrType', add categorical features as numbers with fonction LabelEncoder()
+3 		'Foundation', add categorical features as numbers with fonction LabelEncoder()
+3 		'SaleType', add categorical features as numbers with fonction LabelEncoder()
+3 		'SaleCondition', add categorical features as numbers with fonction LabelEncoder()
+3 		'LotShape', map {"Reg": 0,"IR1": 1, "IR2": 2, "IR3": 3}
+4		'IsRegularLotShape', replace df["LotShape"] == "Reg") with 1 , others 0
+3 		'LandContour', map({None: 0, "Lvl": 1, "Bnk": 2, "HLS": 3, "Low": 4})
+4 		'IsLandLevel', replace "Lvl" with 1 other 0
+3 		'LandSlope', map({"Gtl": 0, "Mod": 1, "Sev": 2})
+4		'IsLandSlopeGentle', replace "Gtl" with 1, others 0
+3 		'Electrical', map({None:0 ,"SBrkr": 1, "FuseA": 2, "FuseF": 3, "FuseP": 4, "Mix": 5})
+4		'IsElectricalSBrkr', replace "SBrkr" with 1, others 0
+3 		'GarageType', map({"NA":0 , "2Types": 1, "Attchd": 2, "Basment": 3, "BuiltIn": 4, "CarPort": 5, "Detchd": 6})
+4		'IsGarageDetached', replace "Detchd" with 1, others 0
+3 		'PavedDrive', map({"Y": 0, "P": 1, "N": 2})
+4		'IsPavedDrive', if Y with 1, others 0
+3 		'MiscFeature', map ({None: 0, "Elev": 1, "Gar2": 2, "Othr": 3, "Shed": 4, "TenC": 5})
+4		'HasShed', replace df["MiscFeature"] == "Shed" with 1, others 0
+5		'Remodeled', If YearRemodAdd != YearBuilt, add the valeur 1, others 0. A remodeling took place at some point
+5		'RecentRemodel', if a remodeling happen in the year the house was sold, the valeur is 1
+5		'VeryNewHouse', if this house sold in the year it was built, the valeur is 1
+4		'Has2ndFloor', 
+4		'HasMasVnr', 
+4		'HasWoodDeck',
+4		'HasOpenPorch', 
+4 		'HasEnclosedPorch', 
+4		'Has3SsnPorch',
+4		'HasScreenPorch', 
+4		'HighSeason', Months with the largest number of deals. map [MoSold]{4: 1, 5: 1, 6: 1, 7: 1}, others 0
+4		'NewerDwelling', divise the "MSSubClass" into two group, use 1 for the group with valeur(20, 60, 120), others 0 
+4		'Neighborhood_Good', for the group of neigborbood {NridgHt, Crawfor, StoneBr, Somerst, NoRidge} we mark 1, others 0
+4		'SaleCondition_PriceDown', map SaleCondition with {'Abnorml': 1, 'Alloca': 1, 'AdjLand': 1, 'Family': 1, 'Normal': 0, 'Partial': 0})
+4		'BoughtOffPlan', map SaleCondition with {"Abnorml" : 0, "Alloca" : 0, "AdjLand" : 0, "Family" : 0, "Normal" : 0, "Partial" : 1}) to present whether house completed before sale 
+4		'BadHeating', replace "HeatingQc" with {'Ex': 0, 'Gd': 0, 'TA': 0, 'Fa': 1, 'Po': 1})
+5		'TotalArea', Calcul the sum of all area different
+5		'TotalArea1st2nd', 
+5		'Age', 2010 - df["YearBuilt"]
+5		'TimeSinceSold', 2010 - all_df["YrSold"]
+4		'SeasonSold', ["MoSold"].map({12:0, 1:0, 2:0, 3:1, 4:1, 5:1, 6:2, 7:2, 8:2, 9:3, 10:3, 11:3})
+5		'YearsSinceRemodel', df["YrSold"] - df["YearRemodAdd"]
+4		'SimplOverallQual', Simplifications of existing features into bad/average/good(1/2/3)
+4		'SimplOverallCond', 
+4		'SimplPoolQC',
+4		'SimplGarageCond', 
+4		'SimplGarageQual', 
+4		'SimplFireplaceQu',
+4		'SimplFunctional', 
+4		'SimplKitchenQual', 
+4		'SimplHeatingQC',
+4		'SimplBsmtFinType1', 
+4		'SimplBsmtFinType2', 
+4		'SimplBsmtCond',
+4		'SimplBsmtQual', 
+4		'SimplExterCond', 
+4		'SimplExterQual',
+4		'NeighborhoodBin'
